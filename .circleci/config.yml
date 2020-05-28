@@ -10,6 +10,7 @@ jobs:
      shell: powershell.exe
    steps:
      - checkout
+     - run: hostname
      - run: |
           [System.Environment]::OSVersion
 #     - run: winver
