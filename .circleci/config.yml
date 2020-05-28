@@ -10,9 +10,12 @@ jobs:
      shell: powershell.exe
    steps:
      - checkout
-     - run: winver
+     - run: |
+          [System.Environment]::OSVersion
+#     - run: winver
      - run: docker run mcr.microsoft.com/windows/nanoserver:1803-amd64
-     - run: winver
+     - run: |
+          [System.Environment]::OSVersion
 #     - run: 
      - run:
          name: Restore packages
