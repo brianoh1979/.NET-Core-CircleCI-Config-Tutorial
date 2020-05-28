@@ -10,7 +10,9 @@ jobs:
      shell: powershell.exe
    steps:
      - checkout
-     - run: docker run mcr.microsoft.com/windows/servercore:ltsc2016
+     - run: docker run mcr.microsoft.com/windows/servercore:1607-amd64
+     - run: winver
+#     - run: 
      - run:
          name: Restore packages
          command:
