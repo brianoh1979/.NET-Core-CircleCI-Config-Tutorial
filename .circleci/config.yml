@@ -2,7 +2,7 @@ version: 2.0
 jobs:
  build:
    docker:
-     - image: mcr.microsoft.com/windows/servercore:10.0.14393.3686
+     - image: microsoft/servercore:10.0.14393.3686
    steps:
      - checkout
      - run:
