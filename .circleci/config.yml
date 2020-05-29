@@ -2,7 +2,7 @@ version: 2.0
 jobs:
  build:
    docker:
-     - image: mcr.microsoft.com/dotnet/framework/aspnet:20190108-4.7-windowsservercore-ltsc2016
+     - image: mcr.microsoft.com/dotnet/framework/aspnet
    steps:
      - checkout
      - run: winver
