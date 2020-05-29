@@ -14,7 +14,11 @@ jobs:
      - run: |
           [System.Environment]::OSVersion
 #     - run: winver
-     - run: docker run --name wincontainer mcr.microsoft.com/windows/nanoserver:1809
+     - run: 
+         name: Run Windows image container on top of OS
+         command: docker run --name wincontainer mcr.microsoft.com/windows/nanoserver:1809
+         background: true
+     - run: docker ps -a
      - run: docker start wincontainer
      - run: docker exec -i wincontainer hostname
 #     - run: 
