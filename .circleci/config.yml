@@ -14,11 +14,11 @@ jobs:
 #     - run: |
 #          [System.Environment]::OSVersion
 #     - run: winver
-     - run: docker pull --name wincontainer mcr.microsoft.com/dotnet/framework/samples
-     - run: 
-         name: Start Windows image container on top of OS
-         command: docker start wincontainer
-         background: true
+     - run: docker pull mcr.microsoft.com/dotnet/framework/samples
+#     - run: 
+#         name: Start Windows image container on top of OS
+#         command: docker start wincontainer
+#         background: true
      - run: docker ps -a
 #     - run: docker start wincontainer
      - run: docker push brianoh1979/wincontainer:latest
