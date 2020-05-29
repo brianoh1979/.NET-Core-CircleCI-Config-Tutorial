@@ -1,14 +1,28 @@
-version: 2.0
+version: 2.1
+
+orbs:
+  win: circleci/windows@1.0.0
+
 jobs:
  build:
-   docker:
-     - image: mcr.microsoft.com/dotnet/framework/samples:dotnetapp
+   executor:
+     name: win/vs2019
+     shell: powershell.exe
    steps:
      - checkout
-     - run: winver
- #    - run: |
- #         [System.Environment]::OSVersion
-     - run: Install-WindowsFeature .NET-Framework-45-Features
+#     - run: hostname
+#     - run: |
+#          [System.Environment]::OSVersion
+#     - run: winver
+     - run: docker pull --name wincontainer mcr.microsoft.com/dotnet/framework/samples
+     - run: 
+         name: Start Windows image container on top of OS
+         command: docker start wincontainer
+         background: true
+     - run: docker ps -a
+#     - run: docker start wincontainer
+     - run: docker push brianoh1979/wincontainer:latest
+#     - run: 
      - run:
          name: Restore packages
          command:
