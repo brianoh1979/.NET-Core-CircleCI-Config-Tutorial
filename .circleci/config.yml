@@ -5,8 +5,9 @@ jobs:
      - image: mcr.microsoft.com/dotnet/core/sdk:2.2
    steps:
      - checkout
-     - run: |
-          [System.Environment]::OSVersion
+     - run: winver
+ #    - run: |
+ #         [System.Environment]::OSVersion
      - run: Install-WindowsFeature .NET-Framework-45-Features
      - run:
          name: Restore packages
