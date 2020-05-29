@@ -15,7 +15,7 @@ jobs:
           [System.Environment]::OSVersion
 #     - run: winver
      - run: docker run --name wincontainer mcr.microsoft.com/windows/nanoserver:1809
-     - run: docker -exec it wincontainer hostname
+     - run: docker exec -it wincontainer hostname
 #     - run: 
      - run:
          name: Restore packages
