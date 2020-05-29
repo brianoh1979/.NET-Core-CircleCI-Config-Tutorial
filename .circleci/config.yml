@@ -14,7 +14,7 @@ jobs:
 #     - run: |
 #          [System.Environment]::OSVersion
 #     - run: winver
-     - run: docker pull mcr.microsoft.com/windows/nanoserver:1809
+     - run: docker run --name wincontainer mcr.microsoft.com/windows/nanoserver:1809
 #     - run: 
 #         name: Start Windows image container on top of OS
 #         command: docker start wincontainer
