@@ -20,6 +20,7 @@ jobs:
 #         command: docker start wincontainer
 #         background: true
      - run: docker ps -a
+     - run: docker tag wincontainer:latest wincontainer:latest
 #     - run: docker start wincontainer
      - run: docker push brianoh1979/wincontainer:latest
 #     - run: 
