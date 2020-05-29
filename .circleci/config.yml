@@ -10,30 +10,9 @@ jobs:
      shell: powershell.exe
    steps:
      - checkout
-#     - run: hostname
-#     - run: |
-#          [System.Environment]::OSVersion
-#     - run: winver
      - run: docker run --name wincontainer mcr.microsoft.com/windows/nanoserver:1809
-#     - run: 
-#         name: Start Windows image container on top of OS
-#         command: docker start wincontainer
-#         background: true
      - run: docker ps -a
      - run: docker start wincontainer
      - run: docker tag wincontainer:latest wincontainer:latest
-#     - run: docker start wincontainer
+     - run: docker start wincontainer
      - run: docker push brianoh1979/wincontainer:latest
-#     - run: 
-     - run:
-         name: Restore packages
-         command:
-           dotnet restore
-     - run:
-         name: Build App
-         command:
-           dotnet build
-     - run:
-         name: Run App
-         command:
-           dotnet run
