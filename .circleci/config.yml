@@ -10,7 +10,8 @@ jobs:
      shell: powershell.exe
    steps:
      - checkout
-     - run: docker run --name wincontainer mcr.microsoft.com/windows/nanoserver:1809
+     - run: docker run --name aspnet_sample --rm -it -p 8000:80 mcr.microsoft.com/dotnet/framework/samples:aspnetapp
+  #   - run: docker run --name wincontainer mcr.microsoft.com/windows/nanoserver:1809
      - run: docker ps -a
      - run: docker start wincontainer
      - run: docker tag wincontainer:latest wincontainer:latest
